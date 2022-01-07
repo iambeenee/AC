@@ -29,7 +29,7 @@ public class Q {
 			System.out.println("---------------------------------------------");
 			System.out.println("메뉴선택>");
 
-			int menuNo = scanner.nextInt();
+			int menuNo = Integer.parseInt(scanner.nextLine());
 
 			switch (menuNo) {
 			case 1:
@@ -87,5 +87,5 @@ public class Q {
 		System.out.println("프로그램을 종료합니다.");
 
 	}
-//클래스 상속 인터페이스 이문제비슷 과제로 풀거 비슷
+
 }
