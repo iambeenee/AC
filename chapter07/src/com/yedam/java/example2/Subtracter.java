@@ -4,9 +4,7 @@ public class Subtracter extends Calculator {
 
 	@Override
 	protected int calc() {
-		int result = a - b;
-
-		return result;
+		return a - b;
 	}
 
 }
