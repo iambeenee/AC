@@ -1,5 +1,7 @@
 package home.date0107;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class MainExample {
@@ -8,6 +10,8 @@ public class MainExample {
 
 		Scanner scanner = new Scanner(System.in);
 		boolean run = true;
+		// boolean check = true;
+		List<Book> list = new ArrayList<>();
 
 		while (run) {
 			System.out.println("-------------------------------------------------------------");
@@ -18,28 +22,60 @@ public class MainExample {
 			int menuNo = Integer.parseInt(scanner.nextLine());
 
 			switch (menuNo) {
-			case 1 :
-				System.out.println("상품명>");
-				String name = scanner.nextLine();
-				System.out.println("가격>");
-				int price = Integer.parseInt(scanner.nextLine());
-				
-				
-				break;
-			case 2 :
-				break;
-			case 3 :
-				break;
-			case 4 :
-				break;
-			case 5 :
-				break;
-			case 6 :
-				run = false;
-				break;
-		
-			}
+			case 1:
+				System.out.println("책이름>");
+				String bookName = scanner.nextLine();
+				System.out.println("저자>");
+				String author = scanner.nextLine();
 
+				Book book = new Book(bookName, author);
+				list.add(book);
+
+				break;
+			case 2:
+				System.out.println("전체조회>");
+
+				for (int i = 0; i < list.size(); i++) {
+					Book temp = list.get(i);
+
+					System.out.println(
+							temp.getBookNum() + " )   " + temp.getBookName() + " : " + temp.getAuthor() + "  ");
+				}
+
+				break;
+			case 3:
+				System.out.println("단건조회>");
+				String str = scanner.nextLine();
+				for (int i = 0; i < list.size(); i++) {
+					if (str.equals(list.get(i).getBookName())) {
+
+						System.out.println(list.get(i).getBookNum() + " )   " + list.get(i).getBookName() + " : "
+								+ list.get(i).getAuthor() + "  ");
+					}
+				}
+
+				break;
+			case 4:
+				System.out.println("책 대여>");
+				String checkIn = scanner.nextLine();
+				for (int i = 0; i < list.size(); i++) {
+					if (checkIn.equals(list.get(i).getBookName())) {
+
+						System.out.println();
+					}
+				}
+
+				break;
+			case 5:
+				System.out.println("책 반납>");
+				break;
+			case 6:
+				System.out.println("종료>");
+				run = false;
+				System.out.println("프로그램을 종료합니다");
+				break;
+			}
 		}
 	}
+
 }
