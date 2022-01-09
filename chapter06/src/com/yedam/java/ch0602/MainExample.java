@@ -4,7 +4,7 @@ public class MainExample {
 
 	public static void main(String[] args) {
 
-		Car car = new Car("검정", 1000); // 형태가 동일해야만 new연산자를 호출가능
+		Car car = new Car("검정", 1000); // 생성자와 형태가 동일해야만 new연산자를 호출가능
 
 		Korean k1 = new Korean("박자바", "011225-1234567");
 		System.out.println("k1.name : " + k1.name);

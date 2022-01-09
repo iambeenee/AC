@@ -42,7 +42,7 @@ public class quiz {
 			case 2:
 				System.out.println("가격입력>");
 				for (int i = 0; i < sale.length; i++) {
-					System.out.println("Sale[" + i + "]=");
+					System.out.println("Sale[" + i +1+ "]=");
 					int sale1 = scanner.nextInt();
 					sale[i] = sale1;
 				}
@@ -50,7 +50,7 @@ public class quiz {
 			case 3:
 				System.out.println("제품별 가격");
 				for (int i = 0; i < sale.length; i++) {
-					System.out.println("제품명 : " + sale[i]);
+					System.out.println(sale[i+1] + " : " + sale[i]);
 				}
 				break;
 			case 4:

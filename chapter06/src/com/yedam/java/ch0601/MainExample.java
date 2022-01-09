@@ -3,7 +3,7 @@ package com.yedam.java.ch0601;
 public class MainExample {
 
 	public static void main(String[] args) {
-		Car car1 = new Car(); // new연산자 호출
+		Car car1 = new Car(); // 객체(인스턴스) 생성
 		System.out.println("car1 변수가 Car인스턴스를 참조합니다.");
 
 		Car car2 = new Car();
