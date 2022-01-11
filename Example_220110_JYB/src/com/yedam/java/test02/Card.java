@@ -3,19 +3,26 @@ package com.yedam.java.test02;
 public class Card {
 
 	// 필드
-	private int cardNum;
+	private String cardNum;
 	private int vaildDate;
 	private int CVC;
 
 	// 생성자
-	public Card (int cardNum, int vaildDate, int CVC) {
+	public Card() {
+
+	}
+
+	public Card(String cardNum) {
+		this.cardNum = cardNum;
+	}
+	public Card(String cardNum, int vaildDate, int CVC) {
 		this.cardNum = cardNum;
 		this.vaildDate = vaildDate;
 		this.CVC = CVC;
 	}
 
-	//메소드
-	public int getCardNum() {
+	// 메소드
+	public String getCardNum() {
 		return cardNum;
 	}
 
@@ -28,7 +35,8 @@ public class Card {
 	}
 
 	public void showCardInfo() {
-		System.out.println("카드정보 ( Card NO : " + getCardNum() + ", 유효기간 : " + getVaildDate() + ", CVC : " + getCVC() + " )");
+		System.out.println(
+				"카드정보 ( Card NO : " + getCardNum() + ", 유효기간 : " + getVaildDate() + ", CVC : " + getCVC() + " )");
 	}
 
 }
