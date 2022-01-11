@@ -7,16 +7,35 @@ public class DGBCard extends Card{
 	private String cardStaff;
 		
 	//생성자
-	public DGBCard(int cardNum, int vaildDate, int CVC, String company, String cardStaff) {
+	public DGBCard(String cardNum, int vaildDate, int CVC) {
 		super(cardNum, vaildDate, CVC);
+	}
+	
+	public DGBCard(String cardStaff, String company) {
 		this.cardStaff = cardStaff;
 	}
 
 	//메소드
 	@Override
 	public void showCardInfo() {
-		System.out.println("카드정보 ( Card NO : " + getCardNum() + ", 유효기간 : " + getVaildDate() + ", CVC : " + getCVC());
-		System.out.println("담당직원 : " + cardStaff + company);
+		System.out.println("카드정보 - Card NO : " + getCardNum() + ", 유효기간 : " + getVaildDate() + ", CVC : " + getCVC());
+		System.out.println("담당직원 - " + cardStaff + ", " + company);
+	}
+
+	public String getCompany() {
+		return company;
+	}
+
+	public void setCompany(String company) {
+		this.company = company;
+	}
+
+	public String getCardStaff() {
+		return cardStaff;
+	}
+
+	public void setCardStaff(String cardStaff) {
+		this.cardStaff = cardStaff;
 	}
 	
 

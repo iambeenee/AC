@@ -3,22 +3,20 @@ package com.yedam.java.test02;
 public class TossCard extends Card {
 
 	// 필드
-	private String company;
+	private String company = "Toss";
 	private String cardStaff;
 
 	// 생성자
-	public TossCard(String cardNum) {
-	}
-	
-	public TossCard(String cardStaff, String company) {
+	public TossCard(String cardNum, String cardStaff, String company) {
+		super(cardNum);
 		this.cardStaff = cardStaff;
-		this.company = "Toss";
+		this.company = company;
 	}
 
 	// 메소드
 	@Override
 	public void showCardInfo() {
-		System.out.println("카드정보 - Card NO, " + getCardNum());
+		System.out.println("카드정보 - Card NO : " + getCardNum());
 		System.out.println("담당직원 - " + getCardStaff() + ", " + company);
 	}
 
