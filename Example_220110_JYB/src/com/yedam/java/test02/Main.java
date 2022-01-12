@@ -13,8 +13,7 @@ public class Main {
 		
 		System.out.println();
 		System.out.println("DGBCard");
-		DGBCard dgbCard = new DGBCard(card.getCardNum(), card.getVaildDate(), card.getCVC());
-		//DGBCard dgbCard1 = new DGBCard("신빛용", dgbCard1.getCompany());
+		DGBCard dgbCard = new DGBCard(card.getCardNum(), card.getVaildDate(), card.getCVC(), "신빛용", dgbCard.getCompany());
 		dgbCard.showCardInfo();
 		
 		

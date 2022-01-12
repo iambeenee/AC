@@ -1,4 +1,4 @@
-package com.yedam.java.app;
+package com.yedam.java.app.ep;
 
 import java.util.List;
 import java.util.Scanner;

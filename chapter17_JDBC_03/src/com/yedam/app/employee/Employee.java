@@ -1,4 +1,4 @@
-package com.yedam.java.app;
+package com.yedam.app.employee;
 
 public class Employee {
 	//필드

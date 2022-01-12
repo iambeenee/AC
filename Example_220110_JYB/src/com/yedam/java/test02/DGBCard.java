@@ -7,11 +7,8 @@ public class DGBCard extends Card{
 	private String cardStaff;
 		
 	//생성자
-	public DGBCard(String cardNum, int vaildDate, int CVC) {
+	public DGBCard(String cardNum, int vaildDate, int CVC, String cardStaff, String company) {
 		super(cardNum, vaildDate, CVC);
-	}
-	
-	public DGBCard(String cardStaff, String company) {
 		this.cardStaff = cardStaff;
 	}
 

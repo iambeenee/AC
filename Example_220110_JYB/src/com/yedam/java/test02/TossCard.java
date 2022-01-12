@@ -10,7 +10,6 @@ public class TossCard extends Card {
 	public TossCard(String cardNum, String cardStaff, String company) {
 		super(cardNum);
 		this.cardStaff = cardStaff;
-		this.company = company;
 	}
 
 	// 메소드
