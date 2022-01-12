@@ -1,6 +1,6 @@
 package com.yedam.java.test04;
 
-public class Today {
+public class Work {
 
 	// 필드
 	private static int serialNum = 0;
@@ -10,7 +10,7 @@ public class Today {
 	private boolean check; // 완료 미완료
 
 	// 생성자
-	public Today(String todo) {
+	public Work(String todo) {
 		serialNum++;
 		this.Num = serialNum;
 		this.todo = todo;
@@ -23,7 +23,7 @@ public class Today {
 	}
 
 	public static void setSerialNum(int serialNum) {
-		Today.serialNum = serialNum;
+		Work.serialNum = serialNum;
 	}
 
 	public int getNum() {

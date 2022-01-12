@@ -6,22 +6,22 @@ import java.util.List;
 public class Library {
 
 	// 필드
-	private List<Today> list;
+	private List<Work> list;
 
 	// 생성자
 	public Library() {
-		list = new ArrayList<Today>();
+		list = new ArrayList<Work>();
 	}
 
 	// 메소드
 	// 할일입력
 	public void addToday(String todo) {
-		list.add(new Today(todo));
+		list.add(new Work(todo));
 	}
 
 	// 전체조회
 	public void printTodayList() {
-		for (Today today : list) {
+		for (Work today : list) {
 			System.out
 					.println(today.getNum() + "번     " + today.getTodo() + (today.isCheck() ? "     완료" : "     미완료"));
 		}
@@ -29,7 +29,7 @@ public class Library {
 
 	// 할일조회
 	public void selectTodayInfo(String todo) {
-		for (Today today : list) {
+		for (Work today : list) {
 			//완료한할일 제외
 			
 			System.out.println(today.getNum() + "번     " + today.getTodo() + (today.isCheck() ? "     완료" : "     미완료"));
@@ -38,7 +38,7 @@ public class Library {
 
 	// 할일완료
 	public void checkToday(int number) {
-		for (Today today : list) {
+		for (Work today : list) {
 			if (today.getNum() == number) {
 				if (today.isCheck()) {
 					System.out.println("해당 할 일은 이미 완료되었습니다.");

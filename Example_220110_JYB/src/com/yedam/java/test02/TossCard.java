@@ -7,32 +7,16 @@ public class TossCard extends Card {
 	private String cardStaff;
 
 	// 생성자
-	public TossCard(String cardNum, String cardStaff, String company) {
-		super(cardNum);
+	public TossCard(String cardNum, int vaildDate, int cvc, String cardStaff) {
+		super(cardNum, vaildDate, cvc);
 		this.cardStaff = cardStaff;
 	}
 
 	// 메소드
 	@Override
 	public void showCardInfo() {
-		System.out.println("카드정보 - Card NO : " + getCardNum());
-		System.out.println("담당직원 - " + getCardStaff() + ", " + company);
-	}
-
-	public String getCompany() {
-		return company;
-	}
-
-	public void setCompany(String company) {
-		this.company = company;
-	}
-
-	public String getCardStaff() {
-		return cardStaff;
-	}
-
-	public void setCardStaff(String cardStaff) {
-		this.cardStaff = cardStaff;
+		System.out.println("카드정보 - Card NO : " + cardNum);
+		System.out.println("담당직원 - " + cardStaff + ", " + company);
 	}
 
 }

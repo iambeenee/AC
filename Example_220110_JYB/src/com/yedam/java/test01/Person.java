@@ -2,25 +2,27 @@ package com.yedam.java.test01;
 
 public class Person {
 
-	//필드
-	private int ssn;
+	// 필드
+	private String ssn; // -> 하이픈 입력 때문에 string으로 받는다
 	private String name;
 	private String address;
-	
-	//생성자
-	
-	//메소드
-	public void person(int ssn, String name, String address) {
+
+	// 생성자
+	public Person() {
+	}
+
+	public Person (String ssn, String name, String address) {
 		this.ssn = ssn;
 		this.name = name;
 		this.address = address;
 	}
 
-	public int getSsn() {
+	//메소드
+	public String getSsn() {
 		return ssn;
 	}
 
-	public void setSsn(int ssn) {
+	public void setSsn(String ssn) {
 		this.ssn = ssn;
 	}
 
