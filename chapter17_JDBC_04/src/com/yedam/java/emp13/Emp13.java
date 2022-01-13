@@ -67,8 +67,8 @@ public class Emp13 {
 
 	@Override
 	public String toString() {
-		return "Emp13 [employeeId=" + employeeId + ", firstName=" + firstName + ", jobId=" + jobId + ", salary="
-				+ salary + ", commissionPct=" + commissionPct + ", departmentName=" + departmentName + ", locationId="
+		return "Emp13 [사번 = " + employeeId + ", 계좌주명 = " + firstName + ", 직급 = " + jobId + ", 연봉 = "
+				+ salary + ", 상여 = " + commissionPct + ", 부서 = " + departmentName + ", 지역번호 = "
 				+ locationId + "]";
 	}
 
