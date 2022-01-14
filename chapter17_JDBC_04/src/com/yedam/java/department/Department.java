@@ -1,6 +1,6 @@
 package com.yedam.java.department;
 
-public class Department { 		// 2. 보호객체 ->해당 데이터를 가져올때 이용
+public class Department { 		// 2. vo객체 ->해당 데이터를 가져올때 이용
 	private int departmentId;
 	private String departmentName;
 	private String managerId;

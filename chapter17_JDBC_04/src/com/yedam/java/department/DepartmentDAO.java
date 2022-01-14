@@ -2,7 +2,7 @@ package com.yedam.java.department;
 
 import java.util.List;
 
-public interface DepartmentDAO { // 3. ->사용방법 : 메소드 시그니처만 정리
+public interface DepartmentDAO { // 3. ->사용방법 : 메소드 시그니처만 정리 / DB와 소통하는 역할
 
 	// 전체조회
 	public List<Department> selectAll();
