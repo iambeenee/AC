@@ -7,12 +7,12 @@ public interface BookDAO {
 	public List<Book> selectAll(); 
 	
 	//단건조회
-	public Book selectOne(String bookName);
+	public Book selectBook(String bookName);
 	
 	//책 등록
 	public void insert(Book book);
 	
-	//대여여부
-	public void checkBook(Book book);
+	//수정
+	public void update(Book book);
 	
 }
