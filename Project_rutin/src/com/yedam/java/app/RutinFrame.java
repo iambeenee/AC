@@ -3,9 +3,9 @@ package com.yedam.java.app;
 import java.util.List;
 import java.util.Scanner;
 
-import com.yeda.java.rutin.Rutin;
-import com.yeda.java.rutin.RutinDAO;
-import com.yeda.java.rutin.RutinDAOImpl;
+import com.yedam.java.rutin.Rutin;
+import com.yedam.java.rutin.RutinDAO;
+import com.yedam.java.rutin.RutinDAOImpl;
 
 public class RutinFrame {
 

@@ -1,4 +1,4 @@
-package com.yeda.java.rutin;
+package com.yedam.java.rutin;
 
 import java.util.List;
 
