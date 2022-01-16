@@ -9,7 +9,7 @@ import java.sql.SQLException;
 public class DAO {
 	// DB 연결 정보
 	private String jdbc_driver = "org.sqlite.JDBC";
-	private String jdbc_url = "jdbc:sqlite:/c:/DEV/workspace/Routin.db";
+	private String jdbc_url = "jdbc:sqlite:/c:/DEV/workspace/Rutin.db";
 
 	//
 	protected Connection conn = null;

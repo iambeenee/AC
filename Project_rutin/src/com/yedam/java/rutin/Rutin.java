@@ -2,51 +2,61 @@ package com.yedam.java.rutin;
 
 public class Rutin {
 	//
-	private String check;
-	private int date;
-	private int time;
-	private String rutinName;
-	private String memo;
-	
+	private int num;
+	private int check; // 완료 미완료
+	private String date; // 날짜
+	private String time; // 시간
+	private String name; // 이름
+	private String memo; // 메모
+
 	//
-	public String getCheck() {
+	public int getNum() {
+		return num;
+	}
+
+	public void setNum(int num) {
+		this.num = num;
+	}
+
+	public int getCheck() {
 		return check;
 	}
-	public void setCheck(String check) {
+
+	public void setCheck(int check) {
 		this.check = check;
 	}
-	public int getDate() {
+
+	public String getDate() {
 		return date;
 	}
-	public void setDate(int date) {
+
+	public void setDate(String date) {
 		this.date = date;
 	}
-	public int getTime() {
+
+	public String getTime() {
 		return time;
 	}
-	public void setTime(int time) {
+
+	public void setTime(String time) {
 		this.time = time;
 	}
-	public String getRutinName() {
-		return rutinName;
+
+	public String getName() {
+		return name;
 	}
-	public void setRutinName(String rutinName) {
-		this.rutinName = rutinName;
+
+	public void setName(String name) {
+		this.name = name;
 	}
+
 	public String getMemo() {
 		return memo;
 	}
+
 	public void setMemo(String memo) {
 		this.memo = memo;
 	}
-	
-	// ->수정
-	@Override
-	public String toString() {
-		return "Rutin [check=" + check + ", date=" + date + ", time=" + time + ", rutinName=" + rutinName + ", memo="
-				+ memo + "]";
-	}
-	
-	
 
+	// (check == 1 ? " O\t" : " X\t")
 }

@@ -1,11 +1,14 @@
 package com.yedam.java.app;
 
-import java.util.Scanner;
 
 public class MainExmaple {
-	public Scanner scanner = new Scanner(System.in);
+	//public Scanner scanner = new Scanner(System.in);
 	public static void main(String[] args) {
 		
+		new AccountFrame();
+		
+		
+		/*
 		boolean run = true;
 		
 		
@@ -60,5 +63,6 @@ public class MainExmaple {
 				//일반회원일때 실행하는 메뉴
 			}
 		}
+		*/
 	}
 }
