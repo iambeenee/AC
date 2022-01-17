@@ -3,7 +3,7 @@ package com.yedam.java.rutin;
 public class Rutin {
 	//
 	private int num;
-	private int check; // 완료 미완료
+	private int complete; // 완료 미완료
 	private String date; // 날짜
 	private String time; // 시간
 	private String name; // 이름
@@ -18,12 +18,12 @@ public class Rutin {
 		this.num = num;
 	}
 
-	public int getCheck() {
-		return check;
+	public int getComplete() {
+		return complete;
 	}
 
-	public void setCheck(int check) {
-		this.check = check;
+	public void setComplete(int complete) {
+		this.complete = complete;
 	}
 
 	public String getDate() {
@@ -58,5 +58,12 @@ public class Rutin {
 		this.memo = memo;
 	}
 
-	// (check == 1 ? " O\t" : " X\t")
+	//
+	@Override
+	public String toString() {
+		return "Rutin [num=" + num + ", check=" + (complete == 1? "O" : "X") + ", date=" + date + ", time=" + time + ", name=" + name
+				+ ", memo=" + memo + "]";
+	}
+
+	
 }

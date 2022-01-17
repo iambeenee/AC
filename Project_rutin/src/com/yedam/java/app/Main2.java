@@ -1,12 +1,10 @@
 package com.yedam.java.app;
 
-public class Main {
+public class Main2 {
 
 	public static void main(String[] args) {
-		
-		new LogFrame();
-		
-		
+		// TODO Auto-generated method stub
+
 	}
 
 }
