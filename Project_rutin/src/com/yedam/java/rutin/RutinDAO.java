@@ -21,4 +21,10 @@ public interface RutinDAO { //DB연결
 	// 삭제
 	public void deleteRutin(int num);
 	
+	// 특정단어 검색 조회
+	public void searchRutin(String strS);
+	
+	// 미완료 루틴 조회
+	public Rutin comNot(Rutin rutin);
+	
 }

@@ -58,12 +58,14 @@ public class Rutin {
 		this.memo = memo;
 	}
 
-	//
 	@Override
 	public String toString() {
-		return "Rutin [num=" + num + ", check=" + (complete == 1? "O" : "X") + ", date=" + date + ", time=" + time + ", name=" + name
-				+ ", memo=" + memo + "]";
+		return " " + num + ") "+ "날짜 " + date + "   시간 " + time + "   루틴 : " + name
+				+ "   메모 : " + memo + "   완료 : " + (complete == 1 ? "O" : "X");
 	}
+
+	//
+	
 
 	
 }

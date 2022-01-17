@@ -31,7 +31,7 @@ public class LogDAOImpl extends DAO implements LogDAO {
 
 			int result = pstmt.executeUpdate();
 			if (result > 0) {
-				System.out.println("회원가입 완료");
+				System.out.println("** 회원가입 완료 **");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
