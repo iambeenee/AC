@@ -39,7 +39,7 @@ public class RutinFrame {
 					updateContent();
 				} else if (menuNo == 6) {
 					// 완료
-					check();
+					selectCheck();
 				} else if (menuNo == 7) {
 					// 삭제
 					deleteRutin();
@@ -61,9 +61,9 @@ public class RutinFrame {
 	// 메뉴출력
 	public void menuPrint() {
 		System.out.println();
-		System.out.println(" ┌────────────────────────────────────────────────────────────────────────────┐");
-		System.out.println(" │ 1 입력 | 2 전체 조회 | 3 일별 조회 | 4 단어 | 5 수정 | 6 루틴 완료하기 │ 7 삭제 | 9 첫 화면 |||");
-		System.out.println(" └────────────────────────────────────────────────────────────────────────────┘");
+		System.out.println(" ┌────────────────────────────────────────────────────────────────────────────────────┐");
+		System.out.println(" │ 1 입력 | 2 전체 조회 | 3 일별 조회 | 4 단어 조회 | 5 수정 | 6 루틴 완료하기 │ 7 삭제 | 9 첫 화면 |||");
+		System.out.println(" └────────────────────────────────────────────────────────────────────────────────────┘");
 		System.out.println("** 선택> ");
 	}
 
@@ -88,31 +88,44 @@ public class RutinFrame {
 
 	// 전체 루틴조회
 	public void selectRutin() {
+		int sum = 0;
 		List<Rutin> list = dao.selectRutin();
 		for (Rutin rutin : list) {
+			sum++;
 			System.out.println(rutin);
 		}
+		System.out.println();
+		System.out.printf("* 총 %s개의 일정이 있습니다.%n", sum);
 	}
 
 	// 일별
 	public void selectDate() {
+		int sum = 0;
 		// 날짜입력
 		String date = inputDate();
 		// 조회
-		Rutin rutin = dao.selectOne(date);
-		// 출력
-		if (rutin == null) {
-			System.out.println("** 해당 날짜에 루틴이 없습니다.");
-		} else {
+		List<Rutin> list = dao.selectOne(date);
+		for (Rutin rutin : list) {
+			sum++;
 			System.out.println(rutin);
 		}
+		System.out.println();
+		System.out.printf("* 총 %s개의 일정이 있습니다.%n", sum);
 	}
 
 	// 단어
 	public void searchWord() {
-		// 단어 입력
-		String strS = inputWord();
-		dao.searchRutin(strS);
+		int sum = 0;
+		String keyword = inputWord();
+		List<Rutin> list = dao.selectRutin();
+		for (Rutin rutin : list) {
+			if ((rutin.getName().indexOf(keyword) != -1) || (rutin.getMemo().indexOf(keyword) != -1)) {
+				sum++;
+				System.out.println(rutin);
+			}
+		}
+		System.out.println();
+		System.out.printf("* 총 %s개의 일정이 있습니다.%n", sum);
 
 	}
 
@@ -122,24 +135,29 @@ public class RutinFrame {
 		Rutin rutin = updateNum();
 		// 실행
 		dao.updateRutin(rutin);
+		
+		
 	}
 
 	// 완료 미완료
-	public void check() {
-		//selectRutin();
-		dao.comNot(rutin);
+	public void selectCheck() {
+		int sum = 0;
+		List<Rutin> list = dao.selectRutin();
+		for (Rutin rutin : list) {
+			if (rutin.getComplete() == 0) {
+				sum++;
+				System.out.println(rutin);
+			}
+		}
+		System.out.println();
+		System.out.printf("* 총 %s개의 일정이 있습니다.%n", sum);
+
 		Rutin rutin = new Rutin();
 		System.out.println();
 		System.out.print("* 완료하고 싶은 날짜의 번호 > ");
 		rutin.setNum(Integer.parseInt(scanner.nextLine()));
-		if (rutin != null) {
-			if (rutin.getComplete() == 1) {
-				System.out.println("* 이미 완료한 루틴입니다.");
-			} else {
-				rutin.setComplete(1);
-				dao.checkRutin(rutin);
-			}
-		}
+		rutin.setComplete(1);
+		dao.checkRutin(rutin);
 
 	}
 
@@ -153,7 +171,6 @@ public class RutinFrame {
 	// 종료
 	public void end() {
 		System.out.println("***** 첫 화면으로 돌아갑니다. *****");
-		new LogFrame();
 	}
 
 //////////////input메소드 정의
@@ -162,13 +179,10 @@ public class RutinFrame {
 		Rutin rutin = new Rutin();
 		System.out.print("* 날짜 (YYYY-MM-dd) > ");
 		rutin.setDate(scanner.nextLine());
-
 		System.out.print("* 시간 (HH:mm) > ");
 		rutin.setTime(scanner.nextLine());
-
 		System.out.print("* 이름 > ");
 		rutin.setName(scanner.nextLine());
-
 		System.out.print("* 메모 > ");
 		rutin.setMemo(scanner.nextLine());
 
@@ -176,17 +190,13 @@ public class RutinFrame {
 	}
 
 	public String inputDate() {
-		String date = null;
 		System.out.print("* 날짜 (YYYY-MM-dd) > ");
-		date = scanner.nextLine();
-		return date;
+		return scanner.nextLine();
 	}
 
 	public int inputNum() {
-		int num = 0;
 		System.out.print("* 삭제할 번호 > ");
-		num = (Integer.parseInt(scanner.nextLine()));
-		return num;
+		return (Integer.parseInt(scanner.nextLine()));
 	}
 
 	public Rutin updateNum() {
@@ -207,19 +217,15 @@ public class RutinFrame {
 	}
 
 	public int deleteNum() {
-		int num = 0;
 		System.out.println();
 		System.out.print("* 삭제할 번호 > ");
-		num = (Integer.parseInt(scanner.nextLine()));
-		return num;
+		return (Integer.parseInt(scanner.nextLine()));
 
 	}
 
 	public String inputWord() {
-		String strS = null;
-		System.out.print("* 검색 할 단어 > ");
-		strS = scanner.nextLine();
-		return strS;
+		System.out.print("* 단어 >");
+		return scanner.nextLine();
 	}
 
 }

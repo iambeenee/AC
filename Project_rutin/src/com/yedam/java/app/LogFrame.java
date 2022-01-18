@@ -9,12 +9,10 @@ import com.yedam.java.log.LogDAOImpl;
 public class LogFrame {
 	private LogDAO dao = LogDAOImpl.getInstance();
 	private Scanner scanner = new Scanner(System.in);
-	
-	boolean run = true;
 
 	public LogFrame() {
 
-		while (run) {
+		while (true) {
 			// 메뉴출력
 			menuPrint();
 			// 메뉴 선택
@@ -30,7 +28,6 @@ public class LogFrame {
 			} else if (menuNo == 9) {
 				// 종료
 				end();
-				run = false;
 				break;
 
 			}

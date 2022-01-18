@@ -51,7 +51,6 @@ public class RutinDAOImpl extends DAO implements RutinDAO {
 			pstmt = conn.prepareStatement(select);
 			rs = pstmt.executeQuery();
 
-			int sum = 0;
 			while (rs.next()) {
 				rutin = new Rutin();
 				rutin.setNum(rs.getInt("num"));
@@ -61,10 +60,7 @@ public class RutinDAOImpl extends DAO implements RutinDAO {
 				rutin.setName(rs.getString("name"));
 				rutin.setMemo(rs.getString("memo"));
 				list.add(rutin);
-				sum++;
 			}
-
-			System.out.printf("* %s개의 일정이 있습니다.%n", sum);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -75,18 +71,16 @@ public class RutinDAOImpl extends DAO implements RutinDAO {
 	}
 
 	// 일자별 루틴 조회
-	public Rutin selectOne(String date) {
-		Rutin rutin = null;
+	public List<Rutin> selectOne(String date) {
+		List<Rutin> list = new ArrayList<>();
+		Rutin rutin = new Rutin();
 		try {
 			connect();
 			String select = "SELECT * FROM Rutin WHERE date = ?";
 			pstmt = conn.prepareStatement(select);
 			pstmt.setString(1, date);
 			rs = pstmt.executeQuery();
-
-			int sum = 0;
 			while (rs.next()) {
-				rutin = new Rutin();
 				rutin = new Rutin();
 				rutin.setNum(rs.getInt("num"));
 				rutin.setComplete(rs.getInt("complete"));
@@ -94,15 +88,14 @@ public class RutinDAOImpl extends DAO implements RutinDAO {
 				rutin.setTime(rs.getString("time"));
 				rutin.setName(rs.getString("name"));
 				rutin.setMemo(rs.getString("memo"));
-				sum++;
+				list.add(rutin);
 			}
-			System.out.printf("* %s개의 일정이 있습니다.%n", sum);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		} finally {
 			disconnect();
 		}
-		return rutin;
+		return list;
 	}
 
 	// 수정
@@ -143,7 +136,7 @@ public class RutinDAOImpl extends DAO implements RutinDAO {
 			int result = pstmt.executeUpdate();
 
 			if (result > 0) {
-				System.out.println("** 수정완료 **");
+				System.out.println("** 완료 **");
 			}
 
 		} catch (SQLException e) {
@@ -173,68 +166,4 @@ public class RutinDAOImpl extends DAO implements RutinDAO {
 		}
 
 	}
-
-	// 특정 단어 검색 조회
-	@Override
-	public void searchRutin(String strS) {
-		Rutin rutin = new Rutin();
-		try {
-			connect();
-			String select = "SELECT * FROM Rutin WHERE name OR memo LIKE ?";
-			pstmt = conn.prepareStatement(select);
-			pstmt.setString(1, strS);
-			rs = pstmt.executeQuery();
-
-			int sum = 0;
-			while (rs.next()) {
-				rutin = new Rutin();
-				rutin = new Rutin();
-				rutin.setNum(rs.getInt("num"));
-				rutin.setComplete(rs.getInt("complete"));
-				rutin.setDate(rs.getString("date"));
-				rutin.setTime(rs.getString("time"));
-				rutin.setName(rs.getString("name"));
-				rutin.setMemo(rs.getString("memo"));
-				sum++;
-			}
-			System.out.printf("* %s개의 일정이 있습니다.%n", sum);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			disconnect();
-		}
-
-	}
-
-	// 미완료 루틴 조회
-	@Override
-	public Rutin comNot(Rutin rutin) {
-		rutin = null;
-		try {
-			connect();
-			String select = "SELECT * FROM Rutin WHERE complete != 1";
-			pstmt= conn.prepareStatement(select);
-			rs = pstmt.executeQuery();
-			
-			int sum = 0;
-			while (rs.next()) {
-				rutin = new Rutin();
-				rutin.setNum(rs.getInt("num"));
-				rutin.setComplete(rs.getInt("complete"));
-				rutin.setDate(rs.getString("date"));
-				rutin.setTime(rs.getString("time"));
-				rutin.setName(rs.getString("name"));
-				rutin.setMemo(rs.getString("memo"));
-				sum++;
-			}
-			System.out.printf("* %s개의 일정이 있습니다.%n", sum);
-					
-		} catch (SQLException e) {
-			e.printStackTrace();
-		} finally {
-			disconnect();
-		}
-		return rutin;
-	}
-
 }
