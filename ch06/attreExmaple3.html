@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        .navi ul{
+            list-style: none;
+        }
+
+        .navi ul li{
+            float: left;
+            padding: 10px;
+        }
+
+        .navi a:link, .navi a:visited{
+            display: block;
+            font-size: 14px;
+            color: black;
+            text-decoration: none;
+            text-align: center;
+        }
+
+        .navi a:hover{
+            background-color: black;
+            color: white;
+        }
+
+        .navi a:focus{
+            background-color: steelblue;
+            color: white;
+        }
+
+        .navi a:active{
+            background-color: tomato;
+        }
+
+        .contents{
+            margin: 30px auto;
+            width: 400px;
+            padding: 20px;
+            border: 1px solid black;
+            border-radius: 5px;
+        }
+
+        #intro:target{
+            background-color: blue;
+            color: white;
+        }
+
+        #signup textarea:disabled{
+            background-color: yellow;
+            font-weight: bold;
+        }
+
+        #signup textarea:enabled{
+            background-color: green;
+            font-weight: bold;
+        }
+
+        #signup input:checked + label{
+            color: red;
+            font-weight: bold;
+        }
+
+        #signup input:not([type=radio]){
+            border : 1px solid cornflowerblue;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+   <div class="container">
+       <nav class="navi">
+           <ul>
+               <li><a href="#intro">이용안내</a></li>
+               <li><a href="#room">객식소개</a></li>
+               <li><a href="#reservation">예약방법 및 요금</a></li>
+               <li><a href="#singup">예약하기</a></li>
+           </ul>
+       </nav>
+   </div>
+   
+   <div id="intro" class="contents">
+    <h2>이용 안내</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Blanditiis provident earum veritatis. Officiis ad labore soluta cumque ullam necessitatibus tempora illo, reiciendis molestias! Dolor facere minus soluta consequatur? Reiciendis, rerum!</p>
+</div>
+
+<div id="room" class="contents">
+    <h2>객실 소개</h2>
+    <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Recusandae rem eaque doloremque voluptatum! Quam magni expedita eius excepturi reiciendis dolores, porro vel eveniet facilis eaque, mollitia et quasi saepe recusandae!</p>
+</div>
+
+<div id="reservation" class="contents">
+    <h2>예약 방법 및 요금</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Impedit, nisi quae. Placeat modi eligendi aliquid. Minima perspiciatis distinctio officia corrupti sit sapiente provident, cumque sequi magnam omnis sed atque veritatis.</p>
+</div>
+
+<div id="signup">
+    <h3>약관</h3>
+    <textarea disabled>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Odio rem dolorum dolore impedit nam tempore ut voluptates quasi provident. Quod, delectus quisquam illum obcaecati velit harum fugiat itaque vel id!
+    </textarea>
+    <h3>...</h3>
+    <ul>
+        <li>
+            <input type="radio" name="room" id="basic">
+            <label for="basic"> 기본형(최대2인)</label>
+        </li>
+        <li>
+            <input type="radio" name="room" id="family">
+            <label for="family">가족형(최대8인)</label>
+        </li>
+        <li>
+            <input type="button" name="selected" value="확인">
+        </li>
+    </ul>
+</div>
+
+
+</body>
+</html>
