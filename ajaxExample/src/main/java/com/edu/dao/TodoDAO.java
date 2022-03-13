@@ -12,7 +12,7 @@ public class TodoDAO extends DAO {
 	public List<Map<String, String>> todoList() {
 		List<Map<String, String>> list = new ArrayList<Map<String, String>>();
 		try {
-			String sql = "SELECT * FROM TO_DO_LIST";
+			String sql = "SELECT * FROM TO_DO_LIST ORDER BY DO_ID";
 			PreparedStatement psmt = conn.prepareStatement(sql);
 			ResultSet rs = psmt.executeQuery();
 			while(rs.next()) {
