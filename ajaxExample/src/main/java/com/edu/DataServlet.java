@@ -41,7 +41,7 @@ public class DataServlet extends HttpServlet {
 		EmpDAO dao = new EmpDAO();
 		dao.insertEmp(fn, Integer.parseInt(sa));
 		
-		response.getWriter().print("{\"name\":\""+fn+"\",\"age\":"+sa+"}");
+		response.getWriter().print("{\"name\":\""+fn+"\",\"age\":"+sa+"}"); //콘솔창
 	}
 
 }

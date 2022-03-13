@@ -38,6 +38,8 @@ public class TodoServlet extends HttpServlet {
 
 		TodoDAO dao = new TodoDAO();
 		dao.insertTodo(content);
+		
+		response.getWriter().print("{\"con\":"+content+"}");
 	}
 
 }
