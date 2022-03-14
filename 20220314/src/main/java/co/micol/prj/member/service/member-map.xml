@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="co.micol.prj.member.service.MemberMapper">
+
+	<select id="selectMemberList" resultType="co.micol.prj.member.service.MemberVO">
+		SELECT * FROM MEMBER
+	</select>
+	
+	<select id="selectMember" parameterType="co.micol.prj.member.service.MemberVO"
+			resultType="co.micol.prj.member.service.MemberVO">
+		SELECT * FROM MEMBER WHERE ID = #{id}
+		<if test="password != null">and password = #{password}</if>
+	</select>
+	
+	<insert id="insertMember" parameterType="co.micol.prj.member.service.MemberVO">
+	
+	</insert>
+	
+	<update id="updateMember" parameterType="co.micol.prj.member.service.MemberVO">
+	
+	</update>
+	
+	<delete id="deleteMember" parameterType="co.micol.prj.member.service.MemberVO">
+	
+	</delete>
+	
+	<select id="isIdCheck" parameterType="String">
+	
+	</select>
+</mapper>

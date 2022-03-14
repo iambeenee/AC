@@ -132,23 +132,11 @@ input {
 			onclick="newElement()" class="addBtn">Add</span>
 	</div>
 
-<<<<<<< HEAD
-<ul id="myUL">
-  <li>Hit the gym</li>
-</ul>
-=======
 	<ul id="myUL">
-		<li>Hit the gym</li>
-		<li class="checked">Pay bills</li>
-		<li>Meet George</li>
-		<li>Buy eggs</li>
-		<li>Read a book</li>
-		<li>Organize office</li>
 	</ul>
->>>>>>> branch 'main' of https://github.com/iambeenee/AC.git
 
 	<script>
-		// ajax 호출코드...db -> 화면
+		// ajax 호출코드...
 		var xhtp = new XMLHttpRequest();
 		xhtp.open('get', 'TodoServlet.do');
 		xhtp.send();
@@ -170,7 +158,7 @@ input {
 				span.appendChild(txt);
 				myNodelist[i].appendChild(span);
 			}
-			
+
 			for (i = 0; i < close.length; i++) {
 				close[i].onclick = function() {
 					var div = this.parentElement;
@@ -207,37 +195,30 @@ input {
 				ev.target.classList.toggle('checked');
 			}
 		}, false);
-		
-		// Add 버튼 -> db
+
 		//Create a new list item when clicking on the "Add" button
-		
 		function newElement() {
-			var content = document.querySelector('input[id="myInput"]');
-
+			var content = document.querySelector("#myInput");
 			var conv = content.value;
-
 			var xhtp = new XMLHttpRequest();
 			xhtp.open('post', 'TodoServlet.do');
 			xhtp.setRequestHeader("Content-type",
 					"application/x-www-form-urlencoded");
 			xhtp.send('doContent=' + conv);
-			xhtp.onloand = function() {
-				var li = document.createElement("li");
-				var inputValue = document.getElementById("myInput").value;
-				var t = document.createTextNode(inputValue);
-				li.appendChild(t);
-				if (inputValue === '') {
+			xhtp.onload = function() {
+				console.log(xhtp.responseText);
+				var result = JSON.parse(xhtp.responseText);
+				var show = document.querySelector('#myUL');
+				var liTag = document.createElement('li');
+				liTag.innerText = result.con;
+				show.prepend(liTag);
+
+				if (conv === '') {
 					alert("You must write something!");
 				} else {
 					document.getElementById("myUL").appendChild(li);
 				}
 				document.getElementById("myInput").value = "";
-
-				var span = document.createElement("SPAN");
-				var txt = document.createTextNode("\u00D7");
-				span.className = "close";
-				span.appendChild(txt);
-				li.appendChild(span);
 
 				for (i = 0; i < close.length; i++) {
 					close[i].onclick = function() {
