@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>속성 선택자1</title>
+    <style>
+        /*특정 속성값이 정확하게 일치*/
+    a[class=button]{
+        background-color: blueviolet;
+    }
+    /*여러 값 중 특정 속성값*/
+    [class~=button]{
+        border: 1px solid black;
+        border-radius: 5px;
+    }
+    /*특정한 값이 포함된 속성값*/
+    a[title |= us]{
+        font-weight: bold;
+    }
+    /*특정한 값으로 시작되는 속성값*/
+    a[title ^=j]{
+        background-color: blue;
+    }
+    /*특정한 값으로 끝나는 속성값*/
+    a[href $=xls]{
+        background-color: tomato;
+    }
+    /*일부값이 포함된 속성값*/
+    [href *= css]{
+        background-color: turquoise;
+    }
+    </style>
+</head>
+<body>
+    <h3>속성 선택자 : 여러 값 중 특정 값 지정</h3>
+    <ul>
+        <li><a href="#" class="flat">메뉴1</a></li>
+        <li><a href="#" class="flat">메뉴2</a></li>
+        <li><a href="#" class="button">메뉴3</a></li>
+        <li><a href="#" class="falt button">메뉴4</a></li>
+    </ul>
+
+    <h3>속성 선택자 : 속성값 중 일부분</h3>
+    <ul>
+        <li>외국어 서비스 : </li>
+        <li><a title="us-english">영어</a></li>
+        <li><a title="ja">일본어</a></li>
+        <li><a title="chn">중국어</a></li>
+    </ul>
+
+    <ul>
+        <li><a href="intro.hwp">hwp파일</a></li>
+        <li><a href="intro.xls">xls파일</a></li>
+    </ul>
+
+    <ul>
+        <li><a href="http://html.spec.whatwg.org">THML 표준안 사이트</a></li>
+        <li><a href="http://www.w3.org/TR/selectors">CSS Selectors Level 3</a></li>
+    </ul>
+</body>
+</html>
