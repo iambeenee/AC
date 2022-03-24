@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>가상 요소</title>
+    <sytle>
+        li.new::after{
+            content: "NEW!!";
+            font-size :x-small;
+            
+        }
+    </sytle>
+</head>
+<body>
+    <div class="container">
+        <h1>제품 목록</h1>
+        <ul>
+            <li class="new">제품A</li>
+            <li>제품B</li>
+            <li>제품C</li>
+            <li class="new">제품D</li>
+        </ul>
+    </div>
+</body>
+</html>
